@@ -1,0 +1,33 @@
+<form #f="ngForm">
+    <div ngModelGroup="chaincodeInstalledInfo">
+        <div class="form-group">
+            <label for="orgName">组织名</label>
+            <input ngModel name="orgName" type="text" id="orgName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="chaincodePath">智能合约的路径</label>
+            <input ngModel name="chaincodePath" type="text" id="chaincodePath" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="chaincodeName">智能合约的名称</label>
+            <input ngModel name="chaincodeName" type="text" id="chaincodeName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="chaincodeVersion">智能合约的版本</label>
+            <input ngModel name="chaincodeVersion" type="text" id="chaincodeVersion" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="channelName">需要安装的通道名称</label>
+            <input ngModel name="channelName" type="text" id="channelName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="chaincodeType">智能合约的编写语言</label>
+            <select ngModel name="chaincodeType" id="chaincodeType" class="form-control">
+                <option *ngFor="let chaincodeType of chaincodeTypes" [value]="chaincodeType.name">{{chaincodeType.name}}</option>
+            </select>
+        </div>
+        <!-- TODO Radio list for peers -->
+    </div>
+    <button class="btn btn-primary">Submit</button>
+    <p>{{f.value | json}}</p>
+</form>

@@ -1,0 +1,31 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div ngModelGroup="contract">
+        <div class="form-group">
+            <label for="firstName">姓</label>
+            <input required ngModel name="firstName" minlength="3" #firstName="ngModel" id="firstName" type="text" class="form-control" (change)="onChange(firstName)">
+            <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+                <div *ngIf="firstName.errors.required">FirstName is required</div>
+                <div *ngIf="firstName.errors.minlength">FirstName is invalid</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input ngModel name="Subscribed" type="checkbox"> Subscribe the post!
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="contactMethod">Contact Methods</label>
+            <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+                <option *ngFor="let method of contactMethods" [ngValue]="method">{{method.name}}</option>
+            </select>
+        </div>
+    </div>
+    <p>
+        {{f.value | json}}
+    </p>
+    <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>
