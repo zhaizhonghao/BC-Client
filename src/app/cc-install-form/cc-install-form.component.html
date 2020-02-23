@@ -1,36 +1,63 @@
 <div class="cc-install">
     <h1>安装智能合约</h1>
     <hr>
-    <form #f="ngForm" class="example-form">
+    <form #f="ngForm" class="example-form" >
         <div ngModelGroup="chaincodeInstalledInfo">
             <mat-form-field class="example-full-width">
                 <mat-label>组织名</mat-label>
-                <input matInput placeholder="例如，百度" ngModel name="orgName">
+                <input 
+                    required
+                    matInput                    
+                    placeholder="例如，百度" 
+                    ngModel name="orgName">
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <mat-label>智能合约的路径</mat-label>
-                <input matInput placeholder="例如，token/v1" ngModel name="chaincodePath">
+                <input 
+                required
+                matInput 
+                placeholder="例如，token/v1" 
+                ngModel 
+                name="chaincodePath">
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <mat-label>智能合约的名称</mat-label>
-                <input matInput placeholder="例如，erc20" ngModel name="chaincodeName">
+                <input 
+                required
+                matInput 
+                placeholder="例如，erc20" 
+                ngModel 
+                name="chaincodeName">
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <mat-label>智能合约的版本</mat-label>
-                <input matInput placeholder="例如，v1.0" ngModel name="chaincodeVersion">
+                <input 
+                required
+                matInput 
+                placeholder="例如，v1.0" 
+                ngModel 
+                name="chaincodeVersion">
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <mat-label>需要安装的通道名称</mat-label>
-                <input matInput placeholder="例如，mychannel" ngModel name="channelName">
+                <input 
+                required
+                matInput 
+                placeholder="例如，mychannel" 
+                ngModel 
+                name="channelName">
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>选择智能合约的编写语言</mat-label>
-                <mat-select ngModel name="chaincodeType">
+                <mat-select 
+                required
+                ngModel 
+                name="chaincodeType">
                   <mat-option *ngFor="let chaincodeType of chaincodeTypes" [value]="chaincodeType.name">{{chaincodeType.name}}</mat-option>
                 </mat-select>
               </mat-form-field>
             <!-- TODO Radio list for peers -->
         </div>
-        <button mat-raised-button color="primary">安装</button>
+        <button mat-raised-button color="primary" [disabled]="!f.valid">安装</button>
     </form>
 </div>

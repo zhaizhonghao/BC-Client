@@ -5,6 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './cc-install-form.component.html',
   styleUrls: ['./cc-install-form.component.css']
 })
+
+
+
 export class CcInstallFormComponent implements OnInit {
   chaincodeTypes=[
     {id:1,name:"golang"},
