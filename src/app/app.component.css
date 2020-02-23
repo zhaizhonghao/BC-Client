@@ -1,0 +1,16 @@
+.side{
+    width: 15%;
+}
+ul{
+    margin: 2px;
+}
+mat-sidenav-container{
+    height: 100%;
+}
+.nav-sidebar > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
+    color: #fff;
+background-color:#673ab7;
+}
+a{
+    color:#673ab7;
+}

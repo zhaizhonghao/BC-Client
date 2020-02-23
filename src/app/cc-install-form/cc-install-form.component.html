@@ -1,4 +1,6 @@
 <div class="cc-install">
+    <h1>安装智能合约</h1>
+    <hr>
     <form #f="ngForm" class="example-form">
         <div ngModelGroup="chaincodeInstalledInfo">
             <mat-form-field class="example-full-width">
@@ -29,7 +31,6 @@
               </mat-form-field>
             <!-- TODO Radio list for peers -->
         </div>
-        <button class="btn btn-primary">Submit</button>
-        <p>{{f.value | json}}</p>
+        <button mat-raised-button color="primary">安装</button>
     </form>
 </div>
