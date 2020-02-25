@@ -1,4 +1,6 @@
-<div class="info-board">
+<mat-spinner *ngIf="!peerInfo" ></mat-spinner>
+
+<div class="info-board" *ngIf="peerInfo">
     <h1>节点信息</h1>
     <hr>
     <h2>名称</h2>
