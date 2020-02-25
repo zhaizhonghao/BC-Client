@@ -1,0 +1,39 @@
+<div class="info-board">
+    <h1>节点信息</h1>
+    <hr>
+    <h2>名称</h2>
+    <mat-list>
+        <mat-list-item>{{peerInfo.name}}</mat-list-item>
+    </mat-list>
+    <br>
+    <h2>URL</h2>
+    <mat-list>
+        <mat-list-item>{{peerInfo.url}}</mat-list-item>
+    </mat-list>
+    <br>
+    <h2>已加入的通道</h2>
+    <mat-list *ngFor="let channel of peerInfo.channelsJoined">
+        <mat-list-item>{{channel}}</mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
+    <br>
+    <h2>已安装的智能合约</h2>
+        <table mat-table [dataSource]="peerInfo.chaincodeInstalled" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>合约名</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="version">
+            <th mat-header-cell *matHeaderCellDef>版本</th>
+            <td mat-cell *matCellDef="let element"> {{element.version}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsForChaincode"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsForChaincode;"></tr>
+        </table>
+    <br>
+    <h2>发现的网络节点</h2>
+    <mat-list *ngFor="let node of peerInfo.network">
+        <mat-list-item>{{node}}</mat-list-item>
+    </mat-list>
+</div>  

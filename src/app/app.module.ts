@@ -14,6 +14,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import {HttpModule} from '@angular/http';
+import { InfoBoardComponent } from './info-board/info-board.component';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import { HlfService } from './hlf.service';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,8 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     SidebarComponent,
     NavbarComponent,
     LoginFormComponent,
-    CcInstallFormComponent
+    CcInstallFormComponent,
+    InfoBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -32,11 +39,14 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     MatSelectModule,
     MatButtonModule,
     MatSidenavModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    HttpModule,
+    MatListModule,
+    MatDividerModule,
+    MatTableModule
   ],
   providers: [
-    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+    HlfService
   ],
   bootstrap: [AppComponent]
 })

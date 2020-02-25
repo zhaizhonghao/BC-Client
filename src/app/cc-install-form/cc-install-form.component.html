@@ -1,7 +1,7 @@
 <div class="cc-install">
     <h1>安装智能合约</h1>
     <hr>
-    <form #f="ngForm" class="example-form" >
+    <form #f="ngForm" class="example-form" (ngSubmit)="install(f)">
         <div ngModelGroup="chaincodeInstalledInfo">
             <mat-form-field class="example-full-width">
                 <mat-label>组织名</mat-label>
