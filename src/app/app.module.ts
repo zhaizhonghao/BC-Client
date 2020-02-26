@@ -18,9 +18,12 @@ import {HttpModule} from '@angular/http';
 import { InfoBoardComponent } from './info-board/info-board.component';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
-import { HlfService } from './hlf.service';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import { HlfService } from './services/hlf.service';
+import { DialogCcInstallComponent, DialogContentExampleDialog } from './dialog-cc-install/dialog-cc-install.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     NavbarComponent,
     LoginFormComponent,
     CcInstallFormComponent,
-    InfoBoardComponent
+    InfoBoardComponent,
+    DialogCcInstallComponent,
+    DialogContentExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -45,10 +50,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatListModule,
     MatDividerModule,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatGridListModule
+  ],
+  entryComponents: [
+    DialogCcInstallComponent
   ],
   providers: [
-    HlfService
+    HlfService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent]
 })
