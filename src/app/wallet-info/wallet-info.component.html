@@ -1,0 +1,24 @@
+<div style="padding: 5%;">
+    <h1>钱包</h1>
+    <hr>
+    <h2>已有的身份卡</h2>
+    <mat-list *ngFor="let wallet of wallets">
+        <mat-grid-list cols="6" rowHeight="60px">
+            <mat-grid-tile>
+                <mat-list-item>{{wallet.label}}</mat-list-item>
+            </mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile>
+                <button mat-raised-button color="primary">删除</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+        <mat-divider></mat-divider>
+    </mat-list>
+    <br>
+    <br>
+    <button mat-raised-button color="primary">创建身份卡</button>
+
+</div>

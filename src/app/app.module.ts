@@ -25,6 +25,7 @@ import { HlfService } from './services/hlf.service';
 import { DialogCcInstallComponent, DialogContentInstallDialog, DialogContentInstantiateDialog } from './dialog-cc-install/dialog-cc-install.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CcInstantiateFormComponent } from './cc-instantiate-form/cc-instantiate-form.component';
+import { WalletInfoComponent } from './wallet-info/wallet-info.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CcInstantiateFormComponent } from './cc-instantiate-form/cc-instantiate
     DialogCcInstallComponent,
     DialogContentInstallDialog,
     CcInstantiateFormComponent,
-    DialogContentInstantiateDialog
+    DialogContentInstantiateDialog,
+    WalletInfoComponent
 
   ],
   imports: [
