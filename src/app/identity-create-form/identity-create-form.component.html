@@ -1,0 +1,24 @@
+<div class="cc-instantiate">
+    <form #f="ngForm" class="example-form" (ngSubmit)="import(f)">
+        <div ngModelGroup="identityInfo">
+            <mat-form-field class="example-full-width">
+                <mat-label>组织名</mat-label>
+                <input 
+                    required
+                    matInput                    
+                    placeholder="例如，百度" 
+                    ngModel name="orgName">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>用户名</mat-label>
+                <input 
+                required
+                matInput 
+                placeholder="例如，user1" 
+                ngModel 
+                name="userName">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" [disabled]="!f.valid">导入</button>
+    </form>
+</div>
