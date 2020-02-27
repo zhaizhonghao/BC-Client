@@ -12,8 +12,16 @@ export class DialogCcInstallComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+  openDialogForInstall() {
+    const dialogRef = this.dialog.open(DialogContentInstallDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDialogForInstantiate() {
+    const dialogRef = this.dialog.open(DialogContentInstantiateDialog);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -22,7 +30,13 @@ export class DialogCcInstallComponent implements OnInit {
 }
 
 @Component({
-  selector: 'dialog-content-example-dialog',
-  templateUrl: 'dialog-content-example-dialog.html',
+  selector: 'cc-install-dialog',
+  templateUrl: 'cc-install-dialog.html',
 })
-export class DialogContentExampleDialog {}
+export class DialogContentInstallDialog {}
+
+@Component({
+  selector: 'cc-instantiate-dialog',
+  templateUrl: 'cc-instantiate-dialog.html',
+})
+export class DialogContentInstantiateDialog {}

@@ -22,8 +22,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import { HlfService } from './services/hlf.service';
-import { DialogCcInstallComponent, DialogContentExampleDialog } from './dialog-cc-install/dialog-cc-install.component';
+import { DialogCcInstallComponent, DialogContentInstallDialog, DialogContentInstantiateDialog } from './dialog-cc-install/dialog-cc-install.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { CcInstantiateFormComponent } from './cc-instantiate-form/cc-instantiate-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     CcInstallFormComponent,
     InfoBoardComponent,
     DialogCcInstallComponent,
-    DialogContentExampleDialog
+    DialogContentInstallDialog,
+    CcInstantiateFormComponent,
+    DialogContentInstantiateDialog
+
   ],
   imports: [
     BrowserModule,
