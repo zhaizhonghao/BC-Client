@@ -22,11 +22,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import { HlfService } from './services/hlf.service';
-import { DialogCcInstallComponent, DialogContentInstallDialog, DialogContentInstantiateDialog } from './dialog-cc-install/dialog-cc-install.component';
+import { DialogCcInstallComponent, DialogContentInstallDialog, DialogContentInstantiateDialog, DialogContentQueryDialog, DialogContentInvokeDialog } from './dialog-cc-install/dialog-cc-install.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CcInstantiateFormComponent } from './cc-instantiate-form/cc-instantiate-form.component';
 import { WalletInfoComponent, DialogContentIDCreateDialog } from './wallet-info/wallet-info.component';
 import { IdentityCreateFormComponent } from './identity-create-form/identity-create-form.component';
+import { CcQueryFormComponent } from './cc-query-form/cc-query-form.component';
+import { CcInvokeFormComponent } from './cc-invoke-form/cc-invoke-form.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,11 @@ import { IdentityCreateFormComponent } from './identity-create-form/identity-cre
     DialogContentInstantiateDialog,
     WalletInfoComponent,
     IdentityCreateFormComponent,
-    DialogContentIDCreateDialog
+    DialogContentIDCreateDialog,
+    CcQueryFormComponent,
+    CcInvokeFormComponent,
+    DialogContentQueryDialog,
+    DialogContentInvokeDialog
 
   ],
   imports: [

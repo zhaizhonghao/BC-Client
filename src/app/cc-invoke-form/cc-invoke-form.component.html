@@ -1,0 +1,26 @@
+<div class="cc-instantiate">
+    <form #f="ngForm" class="example-form" (ngSubmit)="invoke(f)">
+        <div ngModelGroup="invokeInfo">
+            <mat-form-field class="example-full-width">
+                <mat-label>函数名</mat-label>
+                <input 
+                    required
+                    matInput                    
+                    placeholder="例如，百度" 
+                    ngModel name="funcName">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>参数</mat-label>
+                <textarea 
+                    matInput
+                    required
+                    ngModel
+                    name="args"
+                 ></textarea>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" [disabled]="!f.valid">查询</button>
+    </form>
+</div>
+
+

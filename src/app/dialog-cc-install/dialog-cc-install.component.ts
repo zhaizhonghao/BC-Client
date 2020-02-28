@@ -8,6 +8,12 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DialogCcInstallComponent implements OnInit {
 
+  chaincodeInstantiated = [
+    {channelName:"mychannel",chaincodeName:"erc20",version:"v1.0"},
+    {channelName:"airlinechannel",chaincodeName:"token",version:"v1.0"}
+  ]
+  displayedColumnsForChaincode: string[] = ['channelName','chaincodeName', 'version','space','query','invoke'];
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -27,6 +33,24 @@ export class DialogCcInstallComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  openDialogForQuery(channelName,chaincodeName) {
+    console.log(channelName,chaincodeName);
+    const dialogRef = this.dialog.open(DialogContentQueryDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDialogForInvoke(channelName,chaincodeName) {
+    console.log(channelName,chaincodeName);
+    const dialogRef = this.dialog.open(DialogContentInvokeDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
 
 @Component({
@@ -40,3 +64,15 @@ export class DialogContentInstallDialog {}
   templateUrl: 'cc-instantiate-dialog.html',
 })
 export class DialogContentInstantiateDialog {}
+
+@Component({
+  selector: 'cc-query-dialog',
+  templateUrl: 'cc-query-dialog.html',
+})
+export class DialogContentQueryDialog {}
+
+@Component({
+  selector: 'cc-invoke-dialog',
+  templateUrl: 'cc-invoke-dialog.html',
+})
+export class DialogContentInvokeDialog {}
