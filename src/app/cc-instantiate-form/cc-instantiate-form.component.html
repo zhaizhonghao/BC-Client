@@ -45,6 +45,15 @@
                   <mat-option *ngFor="let chaincodeType of chaincodeTypes" [value]="chaincodeType.name">{{chaincodeType.name}}</mat-option>
                 </mat-select>
               </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>输入参数</mat-label>
+                <textarea 
+                matInput
+                required
+                ngModel
+                name="args"
+                 ></textarea>
+              </mat-form-field>
             <!-- TODO Radio list for peers -->
         </div>
         <button mat-raised-button color="primary" [disabled]="!f.valid">安装</button>
