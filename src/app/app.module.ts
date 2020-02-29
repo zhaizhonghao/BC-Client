@@ -13,7 +13,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import {HttpModule} from '@angular/http';
 import { InfoBoardComponent } from './info-board/info-board.component';
 import {MatListModule} from '@angular/material/list';
@@ -29,6 +28,8 @@ import { WalletInfoComponent, DialogContentIDCreateDialog } from './wallet-info/
 import { IdentityCreateFormComponent } from './identity-create-form/identity-create-form.component';
 import { CcQueryFormComponent } from './cc-query-form/cc-query-form.component';
 import { CcInvokeFormComponent } from './cc-invoke-form/cc-invoke-form.component';
+import {RouterModule} from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,6 @@ import { CcInvokeFormComponent } from './cc-invoke-form/cc-invoke-form.component
     CcInvokeFormComponent,
     DialogContentQueryDialog,
     DialogContentInvokeDialog
-
   ],
   imports: [
     BrowserModule,
@@ -67,7 +67,13 @@ import { CcInvokeFormComponent } from './cc-invoke-form/cc-invoke-form.component
     MatTableModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatGridListModule
+    MatGridListModule,
+    RouterModule.forRoot([
+      {path:'',component:HomeComponent},
+      {path:'peerInfo',component:InfoBoardComponent},
+      {path:'deployChaincode',component:DialogCcInstallComponent},
+      {path:'walletInfo',component:WalletInfoComponent}
+    ])
   ],
   entryComponents: [
     DialogCcInstallComponent,
