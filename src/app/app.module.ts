@@ -30,6 +30,7 @@ import { CcQueryFormComponent } from './cc-query-form/cc-query-form.component';
 import { CcInvokeFormComponent } from './cc-invoke-form/cc-invoke-form.component';
 import {RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { BlockchainInfoComponent } from './blockchain-info/blockchain-info.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HomeComponent } from './home/home.component';
     CcQueryFormComponent,
     CcInvokeFormComponent,
     DialogContentQueryDialog,
-    DialogContentInvokeDialog
+    DialogContentInvokeDialog,
+    BlockchainInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ import { HomeComponent } from './home/home.component';
       {path:'',component:HomeComponent},
       {path:'peerInfo',component:InfoBoardComponent},
       {path:'deployChaincode',component:DialogCcInstallComponent},
-      {path:'walletInfo',component:WalletInfoComponent}
+      {path:'walletInfo',component:WalletInfoComponent},
+      {path:'blockchainInfo',component:BlockchainInfoComponent}
     ])
   ],
   entryComponents: [
