@@ -1,22 +1,51 @@
 <div style="padding: 5%;">
     <h1>区块链信息展示</h1>
     <hr>
-    <mat-grid-list cols="4" rowHeight="100px">
-        <mat-grid-tile >
-            1
+    <br>
+    <br>
+    <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile>
+            <div style="text-align: center;">
+                <h2>网络节点</h2>
+                <h2 style="color: lightblue;">8</h2>    
+            </div>
         </mat-grid-tile>
         <mat-grid-tile >
-            2
-        </mat-grid-tile>
-        <mat-grid-tile [rowspan]="2" [colspan]="2">
-            <img src="logo.jpg" alt="5">
-        </mat-grid-tile>
-        <mat-grid-tile >
-            3
+            <div style="text-align: center;">
+                <h2>区块高度</h2>
+                <h2 style="color: lightblue;">10</h2>    
+            </div>
         </mat-grid-tile>
         <mat-grid-tile >
-            4
+            <div style="text-align: center;">
+                <h2>交易数量</h2>
+                <h2 style="color: lightblue;">10000</h2>    
+            </div>
         </mat-grid-tile>
-
-      </mat-grid-list>      
+        <mat-grid-tile >
+        </mat-grid-tile>
+      </mat-grid-list>   
+      <hr>
+      <h2>交易记录</h2>   
+      <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
+        <ng-container matColumnDef="txId">
+        <th mat-header-cell *matHeaderCellDef>交易ID</th>
+        <td mat-cell *matCellDef="let element"><a href="#">{{element.txId}}</a></td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="channelId">
+        <th mat-header-cell *matHeaderCellDef>通道名</th>
+        <td mat-cell *matCellDef="let element"> {{element.channelId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="timestamp">
+            <th mat-header-cell *matHeaderCellDef>时间戳</th>
+            <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef>类型</th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsForChaincode"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsForChaincode;"></tr>
+    </table>
 </div>
