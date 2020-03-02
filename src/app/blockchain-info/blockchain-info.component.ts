@@ -7,35 +7,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlockchainInfoComponent implements OnInit {
 
-  transactions = [
+  blocks = [
     {
-      "txId": "0ccdd561e3760ee3fe934b505064cc1db6adf992e8916ed012f9e100ef261ecd",
-      "channelId": "airlinechannel",
-      "timestamp": "2020-02-02T14:05:18.584Z",
-      "type": "ENDORSER_TRANSACTION"
+      "blockNumber": "3",
+      "blockHash": "a9fa13de7640219e4a78b6cd607b65a7127cc503a903ebc35157877c472293c7",
+      "preBlockHash": "a439e2c8d6aae56c4871429dd7d44f31c17d0383c63da897f83129336ebe0ddd",
+      "dataHash": "751b7fa3f83efff574bfe2e203594fd8fdf65374c1d6e1d9f1ff1a4991bcf199",
+      "transactionsCount": 1,
+      "transactions": [
+        {
+          "transactionID": "b4f8f4c58d31eb728a95285aa055d5927b76418283d42fd69e8a3d32788ded1b",
+          "creatorID": "AcmeMSP"
+        }
+      ]
     },
     {
-      "txId": "0ccdd561e3760ee3fe934b505064cc1db6adf992e8916ed012f9e100ef261ecd",
-      "channelId": "airlinechannel",
-      "timestamp": "2020-02-02T14:05:18.584Z",
-      "type": "ENDORSER_TRANSACTION"
-    },
-    {
-      "txId": "0ccdd561e3760ee3fe934b505064cc1db6adf992e8916ed012f9e100ef261ecd",
-      "channelId": "airlinechannel",
-      "timestamp": "2020-02-02T14:05:18.584Z",
-      "type": "ENDORSER_TRANSACTION"
-    },
-    {
-      "txId": "0ccdd561e3760ee3fe934b505064cc1db6adf992e8916ed012f9e100ef261ecd",
-      "channelId": "airlinechannel",
-      "timestamp": "2020-02-02T14:05:18.584Z",
-      "type": "ENDORSER_TRANSACTION"
+      "blockNumber": "3",
+      "blockHash": "a9fa13de7640219e4a78b6cd607b65a7127cc503a903ebc35157877c472293c7",
+      "preBlockHash": "a439e2c8d6aae56c4871429dd7d44f31c17d0383c63da897f83129336ebe0ddd",
+      "dataHash": "751b7fa3f83efff574bfe2e203594fd8fdf65374c1d6e1d9f1ff1a4991bcf199",
+      "transactionsCount": 1,
+      "transactions": [
+        {
+          "transactionID": "b4f8f4c58d31eb728a95285aa055d5927b76418283d42fd69e8a3d32788ded1b",
+          "creatorID": "AcmeMSP"
+        }
+      ]
     }
+    
   ]
   constructor() { }
 
   ngOnInit(): void {
   }
-  displayedColumnsForChaincode: string[] = ['txId','channelId','timestamp', 'type'];
+  displayedColumnsForChaincode: string[] = ['blockNumber','blockHash','preBlockHash', 'transactionsCount'];
 }

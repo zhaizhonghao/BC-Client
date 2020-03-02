@@ -31,6 +31,7 @@ import { CcInvokeFormComponent } from './cc-invoke-form/cc-invoke-form.component
 import {RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BlockchainInfoComponent } from './blockchain-info/blockchain-info.component';
+import { SummaryPipe } from './summary.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { BlockchainInfoComponent } from './blockchain-info/blockchain-info.compo
     CcInvokeFormComponent,
     DialogContentQueryDialog,
     DialogContentInvokeDialog,
-    BlockchainInfoComponent
+    BlockchainInfoComponent,
+    SummaryPipe
   ],
   imports: [
     BrowserModule,

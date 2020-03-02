@@ -27,23 +27,23 @@
       </mat-grid-list>   
       <hr>
       <h2>交易记录</h2>   
-      <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
-        <ng-container matColumnDef="txId">
-        <th mat-header-cell *matHeaderCellDef>交易ID</th>
-        <td mat-cell *matCellDef="let element"><a href="#">{{element.txId}}</a></td>
+      <table mat-table [dataSource]="blocks" class="mat-elevation-z8">
+        <ng-container matColumnDef="blockNumber">
+        <th mat-header-cell *matHeaderCellDef>区块高度</th>
+        <td mat-cell *matCellDef="let element">{{element.blockNumber}}</td>
         </ng-container>
         <!-- Name Column -->
-        <ng-container matColumnDef="channelId">
-        <th mat-header-cell *matHeaderCellDef>通道名</th>
-        <td mat-cell *matCellDef="let element"> {{element.channelId}} </td>
+        <ng-container matColumnDef="blockHash">
+        <th mat-header-cell *matHeaderCellDef>区块哈希值</th>
+        <td mat-cell *matCellDef="let element"> <a href="#"> {{element.blockHash | summary}} </a></td>
         </ng-container>
-        <ng-container matColumnDef="timestamp">
-            <th mat-header-cell *matHeaderCellDef>时间戳</th>
-            <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
+        <ng-container matColumnDef="preBlockHash">
+            <th mat-header-cell *matHeaderCellDef>前一个区块哈希值</th>
+            <td mat-cell *matCellDef="let element"> {{element.preBlockHash | summary}} </td>
         </ng-container>
-        <ng-container matColumnDef="type">
-            <th mat-header-cell *matHeaderCellDef>类型</th>
-            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        <ng-container matColumnDef="transactionsCount">
+            <th mat-header-cell *matHeaderCellDef>包含交易数量</th>
+            <td mat-cell *matCellDef="let element"> {{element.transactionsCount}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumnsForChaincode"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumnsForChaincode;"></tr>
