@@ -32,6 +32,7 @@ import {RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BlockchainInfoComponent } from './blockchain-info/blockchain-info.component';
 import { SummaryPipe } from './summary.pipe';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { SummaryPipe } from './summary.pipe';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatGridListModule,
+    MatMenuModule,
     RouterModule.forRoot([
       {path:'',component:HomeComponent},
       {path:'peerInfo',component:InfoBoardComponent},

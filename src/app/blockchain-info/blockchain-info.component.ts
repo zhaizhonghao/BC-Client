@@ -36,9 +36,19 @@ export class BlockchainInfoComponent implements OnInit {
     }
     
   ]
+
+  channels = [
+    "airlinechannel",
+    "myachannel"
+  ]
   constructor() { }
 
   ngOnInit(): void {
   }
   displayedColumnsForChaincode: string[] = ['blockNumber','blockHash','preBlockHash', 'transactionsCount'];
+  
+  onChannelSelect(channel){
+    console.log(channel);
+  }
+  
 }
