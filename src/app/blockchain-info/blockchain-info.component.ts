@@ -46,7 +46,6 @@ export class BlockchainInfoComponent implements OnInit {
   blockHeight : any;
   numberOfNode = 8;
   blocks = [];
-  data
   constructor(private hlfService:HlfService) { }
 
   ngOnInit(): void {
@@ -91,5 +90,18 @@ export class BlockchainInfoComponent implements OnInit {
   getAllBlocks(){
     return this.blocks.sort((a,b)=>parseInt(a.blockNumber)-parseInt(b.blockNumber));
   }
+
+  getNumberOfTransactions(){
+    let numberOfTransactions = 0;
+    for (let i = 0; i < this.blocks.length; i++) {
+      numberOfTransactions += this.blocks[i].transactionsCount;
+    }
+    return numberOfTransactions;
+  }
+
+  showBlock(blockNumber){
+    console.log(blockNumber);
+  }
+  
   
 }
