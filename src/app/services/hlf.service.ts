@@ -24,8 +24,9 @@ export class HlfService {
      return this.http.get(this.appendToUrl('channel','getBlockbyHeight',orgName,channelName,height));
    }
 
-   getBlockByHash(){
-     
+   getBlockByHash(orgName,channelName,txHash){
+     //http://72.72.99.85:3000/api/channel/getTransactionById/org1/mychannel/a2c886f41906cc46a276b4a1a6cc9763c68779ee5899a123f05347c9051d0add
+     return this.http.get(this.appendToUrl('channel','getTransactionById',orgName,channelName,txHash));
    }
 
 

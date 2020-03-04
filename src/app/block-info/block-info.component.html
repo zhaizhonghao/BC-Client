@@ -1,0 +1,46 @@
+<mat-spinner *ngIf="!block" ></mat-spinner>
+
+<div class="info-board" *ngIf="block">
+    <div>
+        <h1>区块信息</h1>
+    </div>
+    <hr>
+    <h2>区块号</h2>
+    <mat-list>
+        <mat-list-item>{{block.blockNumber}}</mat-list-item>
+    </mat-list>
+    <br>
+    <br>
+    <hr>
+    <h2>区块哈希值</h2>
+    <mat-list>
+        <mat-list-item>{{block.blockHash}}</mat-list-item>
+    </mat-list>
+    <br>
+    <br>
+    <hr>
+    <h2>前一个区块哈希值</h2>
+    <mat-list>
+        <mat-list-item>{{block.preBlockHash}}</mat-list-item>
+    </mat-list>
+    <br>
+    <br>
+    <hr>
+    <h2>包含的交易</h2>
+        <table mat-table [dataSource]="block.transactions" class="mat-elevation-z8">
+            <ng-container matColumnDef="transactionID">
+            <th mat-header-cell *matHeaderCellDef>交易ID</th>
+            <td mat-cell *matCellDef="let element"><a [routerLink] ="['/blockchainInfo',block.blockNumber,element.transactionID]">{{element.transactionID}}</a></td>
+            </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="creatorID">
+            <th mat-header-cell *matHeaderCellDef>创建者MSP</th>
+            <td mat-cell *matCellDef="let element"> {{element.creatorID}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsForBlock"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsForBlock;"></tr>
+        </table>
+    <br>
+    <a routerLink="/blockchainInfo"><button mat-raised-button color="warn">返回</button></a> 
+</div>  
+

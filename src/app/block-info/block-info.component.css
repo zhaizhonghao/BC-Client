@@ -1,0 +1,11 @@
+.info-board{
+    padding: 5%;
+}
+table{
+    width: 100%;
+}
+mat-spinner{
+    margin: auto;
+    top: 50%;
+
+}

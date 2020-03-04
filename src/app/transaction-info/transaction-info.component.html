@@ -1,0 +1,36 @@
+<mat-spinner *ngIf="!transaction" ></mat-spinner>
+
+<div class="info-board" *ngIf="transaction">
+    <div>
+        <h1>交易信息</h1>
+    </div>
+    <hr>
+    <h2>交易ID</h2>
+    <mat-list>
+        <mat-list-item>{{transaction.txId}}</mat-list-item>
+    </mat-list>
+    <br>
+    <br>
+    <hr>
+    <h2>通道</h2>
+    <mat-list>
+        <mat-list-item>{{transaction.channelId}}</mat-list-item>
+    </mat-list>
+    <br>
+    <br>
+    <hr>
+    <h2>时间戳</h2>
+    <mat-list>
+        <mat-list-item>{{transaction.timestamp}}</mat-list-item>
+    </mat-list>
+    <br>
+    <h2>类型</h2>
+    <mat-list>
+        <mat-list-item>{{transaction.type}}</mat-list-item>
+    </mat-list>
+    <br>
+    <br>
+    <a routerLink="/blockchainInfo"><button mat-raised-button color="warn">返回</button></a> 
+</div>  
+
+

@@ -33,6 +33,8 @@ import { HomeComponent } from './home/home.component';
 import { BlockchainInfoComponent } from './blockchain-info/blockchain-info.component';
 import { SummaryPipe } from './summary.pipe';
 import {MatMenuModule} from '@angular/material/menu';
+import { BlockInfoComponent } from './block-info/block-info.component';
+import { TransactionInfoComponent } from './transaction-info/transaction-info.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import {MatMenuModule} from '@angular/material/menu';
     DialogContentQueryDialog,
     DialogContentInvokeDialog,
     BlockchainInfoComponent,
-    SummaryPipe
+    SummaryPipe,
+    BlockInfoComponent,
+    TransactionInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +83,8 @@ import {MatMenuModule} from '@angular/material/menu';
       {path:'peerInfo',component:InfoBoardComponent},
       {path:'deployChaincode',component:DialogCcInstallComponent},
       {path:'walletInfo',component:WalletInfoComponent},
+      {path:'blockchainInfo/:blockNumber',component:BlockInfoComponent},
+      {path:'blockchainInfo/:blockNumber/:transactionID',component:TransactionInfoComponent},
       {path:'blockchainInfo',component:BlockchainInfoComponent}
     ])
   ],

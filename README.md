@@ -29,7 +29,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 (1) query the block height
 (2) query all the block 
 (3) query the block by hash of the block
-(4) display the info of one block
+(4) query the transaction by hash
+(5) display the info of one block
 2. deploy the chaincode
 (1) install the chaincode
 (2) instantiate the chaincode
