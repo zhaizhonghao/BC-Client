@@ -26,11 +26,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO LIST
 1. blockchain info 
-* query the block height
-* query all the block 
-* query the block by hash of the block
-* query the transaction by hash
-* display the info of one block
+* ~~query the block height~~
+* ~~query all the block~~ 
+* ~~query the block by hash of the block~~
+* ~~query the transaction by hash~~
+* ~~display the info of one block~~
 2. deploy the chaincode
 * install the chaincode
 * instantiate the chaincode
