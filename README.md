@@ -24,13 +24,18 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## TODO
+## TODO LIST
 1. blockchain info 
-(1) query the block height
-(2) query all the block 
-(3) query the block by hash of the block
-(4) query the transaction by hash
-(5) display the info of one block
+* query the block height
+* query all the block 
+* query the block by hash of the block
+* query the transaction by hash
+* display the info of one block
 2. deploy the chaincode
-(1) install the chaincode
-(2) instantiate the chaincode
+* install the chaincode
+* instantiate the chaincode
+3. display the info of wallet
+* show the wallet info
+* import the identity to the wallet
+* export the identity from the wallet
+

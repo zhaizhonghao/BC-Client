@@ -30,8 +30,6 @@ export class BlockInfoComponent implements OnInit {
           }
         });
       });
-
-
   }
 
   displayedColumnsForBlock: string[] = ['transactionID', 'creatorID'];

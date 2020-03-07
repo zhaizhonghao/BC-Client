@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { HlfService } from '../services/hlf.service';
 
 @Component({
   selector: 'cc-install-form',
@@ -15,19 +16,27 @@ export class CcInstallFormComponent implements OnInit {
     {id:2,name:"node"},
     {id:3,name:"java"},
   ]
-  constructor(http:Http) { 
-    http.get('http://72.72.99.85:3000/api/peerInfo/org1/peer0.org1.example.com')
-      .subscribe(response=>{
-        console.log(response.json());
-      });
+  constructor(private hlfService:HlfService) { 
+
   }
 
   ngOnInit(): void {
   }
   install(f){
-    console.log(f.value);
-    // let status = service.installChaincode(f.value);
-    // //set Errors
+    let body = JSON.stringify(f.value.chaincodeInstalledInfo);
+    this.hlfService.installChaincode(body)
+    .subscribe(
+      response=>{
+      console.log(response.json());
+    },
+      (error:Response)=>{
+        if(error.status === 400){
+          alert('BAD REQUEST');
+        }else{
+          alert("there is an unexpected error");
+          console.log(error);
+        }
+      });
   }
 
 }

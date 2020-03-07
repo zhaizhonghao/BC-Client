@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HlfService } from '../services/hlf.service';
 
 @Component({
   selector: 'cc-instantiate-form',
@@ -11,12 +12,30 @@ export class CcInstantiateFormComponent implements OnInit {
     {id:2,name:"node"},
     {id:3,name:"java"},
   ]
-  constructor() { }
+  constructor(private hlfService:HlfService) {
+    
+   }
 
   ngOnInit(): void {
+    
   }
+
   instantiate(f){
-    console.log(f.value);
+    console.log(f.value.chaincodeInstantiateInfo);
+    let body = JSON.stringify(f.value.chaincodeInstantiateInfo);
+    this.hlfService.installChaincode(body)
+    .subscribe(
+      response=>{
+      console.log(response.json());
+    },
+      (error:Response)=>{
+        if(error.status === 400){
+          alert('BAD REQUEST');
+        }else{
+          alert("there is an unexpected error");
+          console.log(error);
+        }
+      });
   }
 
 }

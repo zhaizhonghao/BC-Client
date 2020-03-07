@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class HlfService {
   
   private url : string;
@@ -29,6 +30,13 @@ export class HlfService {
      return this.http.get(this.appendToUrl('channel','getTransactionById',orgName,channelName,txHash));
    }
 
+   installChaincode(body){
+    return this.http.post(this.appendToUrl('channel','installChaincode'),body);
+   }
+
+   instantiateChaincode(body){
+    return this.http.post(this.appendToUrl('channel','instantiateChaincode'),body);
+   }
 
    private appendToUrl(...args){
       let urlFull = this.url;
