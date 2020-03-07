@@ -16,14 +16,17 @@ export class CcInstallFormComponent implements OnInit {
     {id:2,name:"node"},
     {id:3,name:"java"},
   ]
+
   constructor(private hlfService:HlfService) { 
 
   }
 
   ngOnInit(): void {
   }
+  
   install(f){
     let body = JSON.stringify(f.value.chaincodeInstalledInfo);
+    console.log(body);
     this.hlfService.installChaincode(body)
     .subscribe(
       response=>{

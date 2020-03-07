@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,7 @@ export class HlfService {
   
   private url : string;
   constructor(private http:Http) {
+    //TODO the url need to be flexible
     this.url = 'http://72.72.99.85:3000/api';
    }
 
@@ -31,11 +32,18 @@ export class HlfService {
    }
 
    installChaincode(body){
+     console.log(body);
+     //TODO unable to send the body
     return this.http.post(this.appendToUrl('channel','installChaincode'),body);
    }
 
    instantiateChaincode(body){
     return this.http.post(this.appendToUrl('channel','instantiateChaincode'),body);
+   }
+
+   getInstantiatedChaincodes(orgName,channelName){
+     ///api/channel/getChaincodesInfo/:orgName/:channelName
+     return this.http.get(this.appendToUrl('channel','getChaincodesInfo',orgName,channelName));
    }
 
    private appendToUrl(...args){

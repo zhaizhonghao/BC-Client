@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { HlfService } from '../services/hlf.service';
 
 @Component({
   selector: 'dialog-cc-install',
@@ -8,15 +9,27 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DialogCcInstallComponent implements OnInit {
 
-  chaincodeInstantiated = [
-    {channelName:"mychannel",chaincodeName:"erc20",version:"v1.0"},
-    {channelName:"airlinechannel",chaincodeName:"token",version:"v1.0"}
-  ]
+  chaincodeInstantiated : any;
   displayedColumnsForChaincode: string[] = ['channelName','chaincodeName', 'version','space','query','invoke'];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private hlfService:HlfService) { }
 
   ngOnInit(): void {
+    //TODO to get the instantiated chaincodes in all the channels
+    this.hlfService.getInstantiatedChaincodes('org1','mychannel')
+      .subscribe(
+        response=>{
+        console.log(response.json());
+        this.chaincodeInstantiated = response.json();
+      },
+        (error:Response)=>{
+          if(error.status === 400){
+            alert('BAD REQUEST');
+          }else{
+            alert("there is an unexpected error");
+            console.log(error);
+          }
+        });
   }
   openDialogForInstall() {
     const dialogRef = this.dialog.open(DialogContentInstallDialog);
