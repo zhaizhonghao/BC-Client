@@ -35,6 +35,7 @@ import { SummaryPipe } from './summary.pipe';
 import {MatMenuModule} from '@angular/material/menu';
 import { BlockInfoComponent } from './block-info/block-info.component';
 import { TransactionInfoComponent } from './transaction-info/transaction-info.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { TransactionInfoComponent } from './transaction-info/transaction-info.co
     MatDialogModule,
     MatGridListModule,
     MatMenuModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path:'',component:HomeComponent},
       {path:'peerInfo',component:InfoBoardComponent},

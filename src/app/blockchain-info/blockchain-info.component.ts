@@ -51,9 +51,9 @@ export class BlockchainInfoComponent implements OnInit {
   ngOnInit(): void {
       this.hlfService.getBlockHeight('org1','mychannel')
         .subscribe(
-          response=>{
-            this.blockHeight = response.json().blockHeight;
-          console.log(this.blockHeight);
+          (response:any) =>{
+            this.blockHeight = response.blockHeight;
+            console.log(response);
         },
         (error:Response)=>{
           if(error.status === 404){
@@ -67,8 +67,8 @@ export class BlockchainInfoComponent implements OnInit {
         for (let i = 1; i <= 11; i++) {
           this.hlfService.getBlockByHeight('org1','mychannel',i)
           .subscribe(
-            response=>{
-              this.blocks.push(response.json());
+            (response:any)=>{
+              this.blocks.push(response);
           },
           (error:Response)=>{
             if(error.status === 404){

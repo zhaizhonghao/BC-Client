@@ -18,8 +18,8 @@ export class TransactionInfoComponent implements OnInit {
       console.log(params.get('transactionID'));
       this.hlfService.getBlockByHash('org1','mychannel',params.get('transactionID'))
       .subscribe(
-        response=>{
-          this.transaction = response.json();
+        (response:any)=>{
+          this.transaction = response;
       },
       (error:Response)=>{
         if(error.status === 404){

@@ -18,9 +18,9 @@ export class DialogCcInstallComponent implements OnInit {
     //TODO to get the instantiated chaincodes in all the channels
     this.hlfService.getInstantiatedChaincodes('org1','mychannel')
       .subscribe(
-        response=>{
-        console.log(response.json());
-        this.chaincodeInstantiated = response.json();
+        (response:any)=>{
+        console.log(response);
+        this.chaincodeInstantiated = response;
       },
         (error:Response)=>{
           if(error.status === 400){

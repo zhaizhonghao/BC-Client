@@ -18,8 +18,8 @@ export class BlockInfoComponent implements OnInit {
         console.log(params.get('blockNumber'));
         this.hlfService.getBlockByHeight('org1','mychannel',parseInt(params.get('blockNumber'))+1)
         .subscribe(
-          response=>{
-            this.block = response.json();
+          (response:any)=>{
+            this.block = response;
         },
         (error:Response)=>{
           if(error.status === 404){

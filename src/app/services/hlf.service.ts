@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +8,15 @@ import { Http, RequestOptions } from '@angular/http';
 export class HlfService {
   
   private url : string;
-  constructor(private http:Http) {
+  constructor(private http:HttpClient) {
     //TODO the url need to be flexible
-    this.url = 'http://72.72.99.85:3000/api';
+    //this.url = 'http://72.72.99.85:3000/api';
+    this.url = 'http://localhost:3000/api';
    }
 
    getPeerInfo(){
-      return this.http.get('http://72.72.99.85:3000/api/peerInfo/org1/peer0.org1.example.com');
+      //return this.http.get('http://72.72.99.85:3000/api/peerInfo/org1/peer0.org1.example.com');
+      return this.http.get(this.appendToUrl('peerInfo','org1','peer0.org1.example.com'));
    }
 
    getBlockHeight(orgName,channelName){

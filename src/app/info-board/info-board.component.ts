@@ -19,8 +19,8 @@ export class InfoBoardComponent implements OnInit {
   async ngOnInit() {
     this.hlfService.getPeerInfo()
     .subscribe(
-      response=>{
-      this.peerInfo=response.json();
+      (response:any)=>{
+      this.peerInfo=response;
     },
       (error:Response)=>{
         if(error.status === 404){

@@ -29,8 +29,8 @@ export class CcInstallFormComponent implements OnInit {
     console.log(body);
     this.hlfService.installChaincode(body)
     .subscribe(
-      response=>{
-      console.log(response.json());
+      (response:any)=>{
+      console.log(response);
     },
       (error:Response)=>{
         if(error.status === 400){

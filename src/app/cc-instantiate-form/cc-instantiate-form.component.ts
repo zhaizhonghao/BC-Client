@@ -25,8 +25,8 @@ export class CcInstantiateFormComponent implements OnInit {
     let body = JSON.stringify(f.value.chaincodeInstantiateInfo);
     this.hlfService.installChaincode(body)
     .subscribe(
-      response=>{
-      console.log(response.json());
+      (response:any)=>{
+      console.log(response);
     },
       (error:Response)=>{
         if(error.status === 400){
