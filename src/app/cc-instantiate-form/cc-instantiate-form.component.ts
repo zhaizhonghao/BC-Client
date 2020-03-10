@@ -23,7 +23,7 @@ export class CcInstantiateFormComponent implements OnInit {
   instantiate(f){
     console.log(f.value.chaincodeInstantiateInfo);
     let body = JSON.stringify(f.value.chaincodeInstantiateInfo);
-    this.hlfService.installChaincode(body)
+    this.hlfService.instantiateChaincode(body)
     .subscribe(
       (response:any)=>{
       console.log(response);

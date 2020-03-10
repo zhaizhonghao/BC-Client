@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +8,16 @@ import { HttpClient } from '@angular/common/http';
 export class HlfService {
   
   private url : string;
+  private httpOptions : any;
   constructor(private http:HttpClient) {
     //TODO the url need to be flexible
     //this.url = 'http://72.72.99.85:3000/api';
     this.url = 'http://localhost:3000/api';
+    this.httpOptions= {
+      headers: new HttpHeaders({
+         'Content-Type':  'application/json'
+       })
+     };
    }
 
    getPeerInfo(){
@@ -36,11 +42,11 @@ export class HlfService {
    installChaincode(body){
      console.log(body);
      //TODO unable to send the body
-    return this.http.post(this.appendToUrl('channel','installChaincode'),body);
+    return this.http.post(this.appendToUrl('channel','installChaincode'),body,this.httpOptions);
    }
 
    instantiateChaincode(body){
-    return this.http.post(this.appendToUrl('channel','instantiateChaincode'),body);
+    return this.http.post(this.appendToUrl('channel','instantiateChaincode'),body,this.httpOptions);
    }
 
    getInstantiatedChaincodes(orgName,channelName){
