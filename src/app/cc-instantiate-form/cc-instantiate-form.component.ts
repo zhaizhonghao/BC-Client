@@ -21,9 +21,12 @@ export class CcInstantiateFormComponent implements OnInit {
   }
 
   instantiate(f){
-    console.log(f.value.chaincodeInstantiateInfo);
-    let body = JSON.stringify(f.value.chaincodeInstantiateInfo);
-    this.hlfService.instantiateChaincode(body)
+    let peers = []
+    peers.push(f.value.chaincodeInstalledInfo.peers);
+    
+    let body = f.value.chaincodeInstalledInfo;
+    body.peers = peers;
+    this.hlfService.instantiateChaincode(JSON.stringify(body))
     .subscribe(
       (response:any)=>{
       console.log(response);
@@ -37,5 +40,4 @@ export class CcInstantiateFormComponent implements OnInit {
         }
       });
   }
-
 }
