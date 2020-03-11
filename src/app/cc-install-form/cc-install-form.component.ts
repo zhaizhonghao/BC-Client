@@ -25,9 +25,14 @@ export class CcInstallFormComponent implements OnInit {
   }
   
   install(f){
-    let body = JSON.stringify(f.value.chaincodeInstalledInfo);
-    console.log(body);
-    this.hlfService.installChaincode(body)
+    
+    let peers = []
+    peers.push(f.value.chaincodeInstalledInfo.peers);
+    
+    let body = f.value.chaincodeInstalledInfo;
+    body.peers = peers;
+
+    this.hlfService.installChaincode(JSON.stringify(body))
     .subscribe(
       (response:any)=>{
       console.log(response);
