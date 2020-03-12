@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { HlfService } from '../services/hlf.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cc-install-form',
@@ -17,7 +18,7 @@ export class CcInstallFormComponent implements OnInit {
     {id:3,name:"java"},
   ]
 
-  constructor(private hlfService:HlfService) { 
+  constructor(private hlfService:HlfService,private router:Router) { 
 
   }
 
@@ -45,6 +46,6 @@ export class CcInstallFormComponent implements OnInit {
           console.log(error);
         }
       });
+    
   }
-
 }

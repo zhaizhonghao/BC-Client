@@ -17,7 +17,6 @@ export class CcInstantiateFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
   }
 
   instantiate(f){

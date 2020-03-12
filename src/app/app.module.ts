@@ -36,6 +36,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { BlockInfoComponent } from './block-info/block-info.component';
 import { TransactionInfoComponent } from './transaction-info/transaction-info.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     HlfService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
