@@ -11,8 +11,8 @@ export class HlfService {
   private httpOptions : any;
   constructor(private http:HttpClient) {
     //TODO the url need to be flexible
-    this.url = 'http://72.72.99.85:3000/api';
-    //this.url = 'http://localhost:3000/api';
+    //this.url = 'http://72.72.99.85:3000/api';
+    this.url = 'http://localhost:3000/api';
     this.httpOptions= {
       headers: new HttpHeaders({
          'Content-Type':  'application/json'

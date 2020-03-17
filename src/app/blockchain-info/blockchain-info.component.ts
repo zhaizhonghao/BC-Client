@@ -48,6 +48,7 @@ export class BlockchainInfoComponent implements OnInit {
   blocks = [];
   constructor(private hlfService:HlfService) { }
 
+  
   ngOnInit(): void {
       this.hlfService.getBlockHeight('org1','mychannel')
         .subscribe(
@@ -81,11 +82,13 @@ export class BlockchainInfoComponent implements OnInit {
         }
   }
 
+
   displayedColumnsForChaincode: string[] = ['blockNumber','blockHash','preBlockHash', 'transactionsCount'];
 
   onChannelSelect(channel){
     console.log(channel);
   }
+
   
   getAllBlocks(){
     return this.blocks.sort((a,b)=>parseInt(a.blockNumber)-parseInt(b.blockNumber));
