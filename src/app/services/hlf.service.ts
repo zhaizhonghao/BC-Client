@@ -11,8 +11,8 @@ export class HlfService {
   private httpOptions : any;
   constructor(private http:HttpClient) {
     //TODO the url need to be flexible
-    //this.url = 'http://72.72.99.85:3000/api';
-    this.url = 'http://localhost:3000/api';
+    this.url = 'http://172.32.0.40:3000/api';
+    //this.url = 'http://localhost:3000/api';
     this.httpOptions= {
       headers: new HttpHeaders({
          'Content-Type':  'application/json'
@@ -21,7 +21,6 @@ export class HlfService {
    }
 
    getPeerInfo(){
-      //return this.http.get('http://72.72.99.85:3000/api/peerInfo/org1/peer0.org1.example.com');
       return this.http.get(this.appendToUrl('peerInfo','org1','peer0.org1.example.com'));
    }
 

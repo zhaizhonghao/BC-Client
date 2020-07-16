@@ -55,17 +55,9 @@ export class BlockchainInfoComponent implements OnInit {
           (response:any) =>{
             this.blockHeight = response.blockHeight;
             console.log(response);
-        },
-        (error:Response)=>{
-          if(error.status === 404){
-            alert('NOT FOUND');
-          }else{
-            alert("there is an unexpected error");
-            console.log(error);
-          }
-        });
-
-        for (let i = 1; i <= 11; i++) {
+            //Get all blocks
+        //TODO what is the 3
+        for (let i = 1; i <= this.blockHeight; i++) {
           this.hlfService.getBlockByHeight('org1','mychannel',i)
           .subscribe(
             (response:any)=>{
@@ -80,6 +72,16 @@ export class BlockchainInfoComponent implements OnInit {
             }
           });
         }
+        },
+        (error:Response)=>{
+          if(error.status === 404){
+            alert('NOT FOUND');
+          }else{
+            alert("there is an unexpected error");
+            console.log(error);
+          }
+        });
+
   }
 
 
